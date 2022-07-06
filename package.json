@@ -8,7 +8,7 @@
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
     "test:e2e": "concurrently 'NODE_ENV=test vite --port 4173' 'CYPRESS_BASE_URL=http://127.0.0.1:4173 cypress open --e2e'",
-    "test:e2e:ci": "NODE_ENV=test start-server-and-test preview http://127.0.0.1:4173/ 'cypress run --e2e'",
+    "test:e2e:ci": "concurrently 'NODE_ENV=test vite --port 4173' 'CYPRESS_BASE_URL=http://127.0.0.1:4173 cypress run --e2e'",
     "build-only": "vite build && electron-builder",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
